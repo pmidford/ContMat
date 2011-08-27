@@ -1,9 +1,12 @@
 /*
- * EthOntos - a tool for comparative methods using ontologies
- * Copyright 2004-2005 Peter E. Midford
+ * GLS comparative methods for Mesquite copyright 2008-2011 P. Midford
+ * This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
+ *
+ * This source code and its compiled class files are free and modifiable under the terms of 
+ * GNU Lesser General Public License.  (http://www.gnu.org/copyleft/lesser.html)
  * 
- * Created on Dec 11, 2008
- * Last updated on Dec 11, 2008
+ * Created on May 28, 2008
+ * Last updated on August 27, 2011
  * 
  */
 package mesquite.contmat.GLSBeta;
@@ -86,11 +89,11 @@ public class GLSBeta extends NumberFor2CharAndTree {
         final int cDim = c.getColumnDimension();
         if (cDim != observedStates1.getNumItems()){
             MesquiteMessage.warnProgrammer("Matrix size " + cDim + " does not match size of first character set " + observedStates1.getNumItems());
-            return;
+            //return;
         }
         if (c.getColumnDimension() != observedStates2.getNumItems()){
             MesquiteMessage.warnProgrammer("Matrix size " + cDim + " does not match size of second character set " + observedStates2.getNumItems());
-            return;            
+            //return;            
         }
            
         y = new double[cDim];
@@ -105,12 +108,12 @@ public class GLSBeta extends NumberFor2CharAndTree {
             x.set(i, 1, 1.0);
         calculator.doCalculations(c,y,x);
         
-        calculator.getBetaEst();
+        MesquiteMessage.notifyProgrammer("Test calculation of beta = " + calculator.getBetaEst());
         
         if (result != null)
             result.setValue(calculator.getBetaEst());
         if (resultString != null)
-            resultString.setValue("Beta =  " + result);
+            resultString.setValue("Beta =  " + calculator.getBetaEst());
 
     }
 
@@ -132,7 +135,6 @@ public class GLSBeta extends NumberFor2CharAndTree {
     }
 
     public String getName() {
-        // TODO Auto-generated method stub
         return "GLS Beta (slope)";
     }
 

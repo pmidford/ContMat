@@ -1,8 +1,7 @@
-/* Mesquite module ~~ Copyright 1997-2005 W. & D. Maddison*/
 /* ContMat ~~ Copyright 2011 Peter E. Midford */
 package mesquite.contmat.aContMatIntro;
 
-import mesquite.lib.duties.*;
+import mesquite.lib.duties.PackageIntro;
 
 
 public class aContMatIntro extends PackageIntro{
@@ -44,10 +43,17 @@ public class aContMatIntro extends PackageIntro{
     public String getPackageVersion() {
         return "0.01";
     }
+    
+    /*.................................................................................................................*/
+    /** Returns version for a package of modules as an integer*/
+    public int getPackageVersionInt(){
+        return 1;
+    }
+
     /*.................................................................................................................*/
     /** Returns whether there is a splash banner*/
     public boolean hasSplash(){
-        return false; 
+        return true; 
     }
 
 }
